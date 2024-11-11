@@ -9,7 +9,8 @@ class MinHeap:
 
     def insert(self, value):
         self.heap.append(value)
-        self.subir(len(self.heap) - 1) 
+        self.subir(len(self.heap) - 1)
+        self.display_heap()
 
     def subir(self, index):
         while index > 0:
@@ -27,7 +28,7 @@ class MinHeap:
         valor_raiz = self.heap[0] # 3
         self.heap[0] = self.heap.pop() # [0] = 6
         self.descer(0) # index
-
+        self.display_heap()
         return valor_raiz
     
     def descer(self, index):
@@ -53,16 +54,28 @@ class MinHeap:
                 print(f'{menor} - {index} agora é')
                 break
 
+    def display_heap(self):
+        print(f'Heap atual: {self.heap}')
 
-min_heap = MinHeap()    
+
+min_heap = MinHeap()
+
+# dados que eu tava usando pra teste 👌
+# min_heap.insert(10)
+# min_heap.insert(4)
+# min_heap.insert(15)
+# min_heap.insert(6)
+# min_heap.insert(3)
+
 min_heap.insert(10)
-min_heap.insert(4)
+min_heap.insert(5)
+min_heap.insert(20)
+min_heap.insert(1)
 min_heap.insert(15)
-min_heap.insert(6)
-min_heap.insert(3)
+min_heap.insert(30)
+min_heap.insert(25)
 
 print(min_heap.heap)
 
 min_value = min_heap.remover_raiz()
 print(min_value)
-print(min_heap.heap)
