@@ -1,15 +1,25 @@
+import os
+import time
 from min_heap import MinHeap
 
 # pai = (index - 1 ) // 2
 # filho esquerda = 2 * index + 1
 # filho direita = 2 * index + 2
 
+def clear_console():
+    # Limpa o console conforme o sistema operacional
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+# Função para esperar o usuário pressionar "Enter"
+def wait_for_next():
+    input("\nPressione 'Enter' para continuar para a próxima atividade...")
+    clear_console()
 
 
 if __name__ == "__main__":
     atv1 = MinHeap()
     # inserindo os dados da q1
-    print('Construindo o HEAP:')
+    print('Q1 - Construindo o HEAP:')
     atv1.insert(10)
     atv1.insert(5)
     atv1.insert(20)
@@ -36,8 +46,10 @@ if __name__ == "__main__":
     heap_atv1_sort = atv1.heap_sort()
     print(heap_atv1_sort)
 
+    wait_for_next()
 
     # q2 - ordem crescente
+    print('Q2 - Ordem Crescente')
     atv2 = MinHeap()
     atv2.insert(1)
     atv2.insert(2)
@@ -71,6 +83,8 @@ if __name__ == "__main__":
     heap_atv2_sort = atv2.heap_sort()
     print(heap_atv2_sort)
 
+    wait_for_next()
+
     # Q3 - Sequência Decrescente
     atv3 = MinHeap()
 
@@ -98,6 +112,8 @@ if __name__ == "__main__":
     print('Heap Sort:')
     atv3_heap_sort = atv3.heap_sort()
     print(atv3_heap_sort)
+
+    wait_for_next()
 
     # Q4 - Dados Aleatórios Maiores
     atv4 = MinHeap()
