@@ -2,7 +2,7 @@
 # filho esquerda = 2 * index + 1
 # filho direita = 2 * index + 2
 
-class MinHeap:
+class MaxHeap:
 
     def __init__(self):
         self.heap = []
@@ -15,7 +15,7 @@ class MinHeap:
     def subir(self, index):
         while index > 0:
             no_pai = (index - 1) // 2 
-            if self.heap[index] < self.heap[no_pai]:
+            if self.heap[index] > self.heap[no_pai]:
                 self.heap[index], self.heap[no_pai] = self.heap[no_pai], self.heap[index]
                 self.display_heap()
                 index = no_pai
@@ -45,10 +45,10 @@ class MinHeap:
             f_direita = 2 * index + 2 
             menor = index
 
-            if f_esquerda < tamanho and self.heap[f_esquerda] < self.heap[menor]:
+            if f_esquerda < tamanho and self.heap[f_esquerda] > self.heap[menor]:
                 menor = f_esquerda 
             
-            if f_direita < tamanho and self.heap[f_direita] < self.heap[menor]:
+            if f_direita < tamanho and self.heap[f_direita] > self.heap[menor]:
                 menor = f_direita
             
             if menor != index:
@@ -64,7 +64,7 @@ class MinHeap:
 
         self.display_heap()
 
-        if new_priority < old_priority:
+        if new_priority > old_priority:
             self.subir(index)
         else:
             self.descer(index)
@@ -76,6 +76,8 @@ class MinHeap:
     def get_high_priority(self):
         return self.heap[0]
     
+    
+
     def heap_sort(self):
 
         sorted_heap = []
@@ -90,15 +92,12 @@ class MinHeap:
         while len(lista) > 0:
             self.insert(lista.pop(0))
 
-# lista_teste = [18, 25, 41, 34, 14, 10, 52, 50, 48]
 
-# min_heap = MinHeap()
+# max_heap = MaxHeap()
 
-# min_heap.heap = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+# max_heap.heap = [92, 85, 90, 47, 91, 34, 20, 40, 46]
 
-# heap_sorteado = min_heap.heap_sort()
-
-# print(heap_sorteado)
+# max_heap.change_priority(4, 93)
 
 # min_heap.constroi_heap(lista_teste)
 

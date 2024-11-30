@@ -1,6 +1,7 @@
 import os
 import time
 from min_heap import MinHeap
+from max_heap import MaxHeap
 
 # pai = (index - 1 ) // 2
 # filho esquerda = 2 * index + 1
@@ -17,7 +18,7 @@ def wait_for_next():
 
 
 if __name__ == "__main__":
-    atv1 = MinHeap()
+    atv1 = MaxHeap()
     # inserindo os dados da q1
     print('Q1 - Construindo o HEAP:')
     atv1.insert(10)
@@ -50,7 +51,7 @@ if __name__ == "__main__":
 
     # q2 - ordem crescente
     print('Q2 - Ordem Crescente')
-    atv2 = MinHeap()
+    atv2 = MaxHeap()
     atv2.insert(1)
     atv2.insert(2)
     atv2.insert(3)
@@ -86,7 +87,7 @@ if __name__ == "__main__":
     wait_for_next()
 
     # Q3 - Sequência Decrescente
-    atv3 = MinHeap()
+    atv3 = MaxHeap()
 
     print('Q3 - Inserindo dados no heap')
     atv3.insert(50)
@@ -116,7 +117,7 @@ if __name__ == "__main__":
     wait_for_next()
 
     # Q4 - Dados Aleatórios Maiores
-    atv4 = MinHeap()
+    atv4 = MaxHeap()
 
     atv4.insert(13)
     atv4.insert(26)
