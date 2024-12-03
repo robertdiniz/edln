@@ -33,12 +33,12 @@ def in_order(node):
         print(node.data, end=" ")
         in_order(node.right)
 
-def count_sheets(node):
+def count_leaves(node):
     if node is None:
         return 0
     if node.left is None and node.right is None:
         return 1
-    return count_sheets(node.left) + count_sheets(node.right)
+    return count_leaves(node.left) + count_leaves(node.right)
 
 def get_successor(curr):
     curr = curr.right
@@ -89,4 +89,4 @@ if __name__ == "__main__":
     print(search(5, root))
     print(search(6, root))
     print(size(root))
-    print(count_sheets(root))
+    print(count_leaves(root))
