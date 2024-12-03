@@ -33,6 +33,41 @@ def in_order(node):
         print(node.data, end=" ")
         in_order(node.right)
 
+def count_sheets(node):
+    if node is None:
+        return 0
+    if node.left is None and node.right is None:
+        return 1
+    return count_sheets(node.left) + count_sheets(node.right)
+
+def get_successor(curr):
+    curr = curr.right
+    while curr is not None and curr.left is not None:
+        curr = curr.left
+    return curr
+
+def del_node(root, key):
+
+    if root is None:
+        return root
+
+    if key < root.data:
+        root.left = del_node(root.left, key)
+    if key > root.data:
+        root.right = del_node(root.right, key)
+
+    if key == root.data:
+        if root.left is None:
+            return root.right
+
+        if root.right is None:
+            return root.left
+
+        succ = get_successor(root)
+        root.key = succ.key
+        root.right = del_node(root.right, succ.key)
+        
+    return root
 
 
 def size(node):
@@ -54,4 +89,4 @@ if __name__ == "__main__":
     print(search(5, root))
     print(search(6, root))
     print(size(root))
-    
+    print(count_sheets(root))
