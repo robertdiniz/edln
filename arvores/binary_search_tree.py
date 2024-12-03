@@ -27,12 +27,21 @@ def search(value, current=None):
         return search(value, current.left)
     return search(value, current.right)
 
-
 def in_order(node):
     if node is not None:
         in_order(node.left)
         print(node.data, end=" ")
         in_order(node.right)
+
+
+
+def size(node):
+    if node is None:
+        return 0
+    hleft = size(node.left)
+    hright = size(node.right)
+    return hleft + hright + 1
+
 
 if __name__ == "__main__":
     root = None
@@ -44,4 +53,5 @@ if __name__ == "__main__":
     print()
     print(search(5, root))
     print(search(6, root))
+    print(size(root))
     
